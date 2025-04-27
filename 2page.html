@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Political Survey Form</title>
+
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            justify-content: center;
+            background-image: url(bg2.jpg);
+            background-size: cover;
+            font-size: 10px;
+        }
+        .heading {
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 25px;
+            font-size: 60px;
+            justify-content: center;
+            color: white;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        form {
+            background-color: rgba(63, 63, 63, 0.7);
+            font-size: 20px;
+            border-radius: 25px;
+            width: 60%;
+            margin: 0 auto;
+            color: white;
+            padding: 20px;
+        }
+        .content {
+            margin-left: 40px;
+        }
+        .candidate input {
+            border: 1px solid #777;
+            border-radius: 10px;
+            font-size: 20px;
+            padding: 10px;
+            display: block;
+            width: 50%;
+            font-family: inherit;
+        }
+        .button {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .back,
+        .next {
+            font-size: larger;
+            border-radius: 20px;
+            padding: 15px 25px;
+            margin: 15px;
+            cursor: pointer;
+        }
+        .back:hover,
+        .next:hover {
+            transform: translateY(-10px);
+        }
+        .back {
+            background-color: rgb(250, 155, 47);
+            color: black;
+        }
+        .next {
+            background-color: green;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="surveyForm">
+        <div class="heading">Political Survey Form</div>
+        <div class="content">
+            <p>1. Are you a registered voter at the current address you reside at?</p>
+            <div>
+                <input type="radio" id="Yes" name="registeredVoter" value="Yes"><label for="Yes">Yes</label>
+            </div>
+            <div>
+                <input type="radio" id="No" name="registeredVoter" value="No"><label for="No">No</label>
+            </div>
+
+            <p>2. Do you think the existing government is going in the right direction to benefit the people of the
+                country?</p>
+            <div>
+                <input type="radio" id="1" name="governmentDirection" value="Yes"><label for="1">Yes</label>
+            </div>
+            <div>
+                <input type="radio" id="2" name="governmentDirection" value="No"><label for="2">No</label>
+            </div>
+
+            <p>3. Which party do you support to handle sensitive topics such as national security?</p>
+            <div>
+                <input type="radio" id="bjp" name="party" value="BJP"><label for="bjp">BJP</label>
+            </div>
+            <div>
+                <input type="radio" id="cong" name="party" value="Congress"><label for="cong">Congress</label>
+            </div>
+            <div>
+                <input type="radio" id="aap" name="party" value="AAP"><label for="app">AAP</label>
+            </div>
+            <div>
+                <input type="radio" id="sad" name="party" value="SAD"><label for="sad">SAD</label>
+            </div>
+
+            <p>4. Please state whom you voted for in the last election:</p>
+            <div class="candidate">
+                <label for="Candidate">Your previously voted candidate</label>
+                <input type="text" id="Candidate" placeholder="Enter your candidate" autofocus>
+            </div>
+
+            <p>5. How likely are you to vote in the coming elections?</p>
+            <div>
+                <input type="radio" id="a" name="votingLikelihood" value="Certain to vote"><label for="a">Certain to
+                    vote</label>
+            </div>
+            <div>
+                <input type="radio" id="b" name="votingLikelihood" value="Most likely to vote"><label for="b">Most likely
+                    to vote</label>
+            </div>
+            <div>
+                <input type="radio" id="c" name="votingLikelihood" value="Probably don't vote"><label for="c">Probably
+                    don't vote</label>
+            </div>
+            <div>
+                <input type="radio" id="d" name="votingLikelihood" value="I won't vote"><label for="d">I won't
+                    vote</label>
+            </div>
+        </div>
+        <div class="button">
+            <a href="7exitpoll.html"><button type="button" class="back" >Back</button></a>
+            <a href="3page.html"> <button type="button" class="next" onclick="saveData()">Next</button></a>
+        </div>
+    </form>
+
+    <script>
+        // Function to save form data to localStorage
+        function saveData() {
+            const form = document.getElementById('surveyForm');
+            const formData = new FormData(form);
+            const data = {};
+
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            const candidate = document.getElementById('Candidate').value;
+            data['Candidate'] = candidate;
+
+            localStorage.setItem('surveyData', JSON.stringify(data));
+            
+        }
+
+        
+    </script>
+</body>
+
+</html>

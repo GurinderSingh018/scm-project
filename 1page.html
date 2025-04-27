@@ -1,0 +1,174 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SURVEY FORM</title>
+        <style>
+              body {
+                 background-image: url(bg.jpg);
+                background-size: cover; 
+                    text-align: center;
+                    
+                }
+      
+       
+        .heading{
+                    color:white;
+                    padding: 25px;
+                    display: flex;
+                    font-size: 50px;
+                    justify-content: center;
+                    
+                }
+        
+        form {
+                    color: white;
+                    background-color: rgb(0, 0, 0,0.5);
+                    font-size: 20px;
+                    border-radius: 25px;
+                    width: 40%;
+                    margin: 0 auto;
+                    box-shadow: 2px 5px 10px 5px rgba(0, 0, 0, 0.5);
+                }
+                
+        .form-control {
+                    text-align: left;
+                    margin-bottom: 25px;
+                    margin-left: 10px;
+                }
+        
+        .form-control label {
+                    display: block;
+                    margin-bottom: 10px;
+                }
+        
+        .form-control input,
+        .form-control select,
+        .form-control textarea {
+                    font-size: 20px;
+                    border: 1px solid #777;
+                    border-radius: 10px;
+                    font-family: inherit;
+                    padding: 10px;
+                    display: block;
+                    width: 95%;
+                }
+        .form-control input:hover,textarea:hover{
+            transform: translateY(-10px);
+        }
+        
+        .button{
+            display: flex;
+            justify-content: center;           
+            margin: 0%;
+            transition: ease;
+        }
+        
+        .next,.back{
+            font-size: larger;
+            background-color:rgb(223, 151, 18) ;
+
+            border-radius: 15px;
+            margin: 5px;
+            padding: 10px 25px;
+        }
+        .next:hover,.back:hover{
+            transform: translateY(-10px);
+        }
+
+        .radio {
+            text-align: left;
+            margin-left: 10px;
+            margin-bottom: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+    
+        @keyframes bgAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        
+        body {
+            animation: bgAnimation 10s ease infinite;
+            background-size: 200% 200%;
+        }
+        </style>
+    </head>
+    <body>
+        <form id="form">
+            <div class="heading">Survey Form</div>
+            <div class="form-control">
+                <label for="name" id="label-name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required />
+            </div>
+
+            <div class="form-control">
+                <label for="email" id="label-email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required />
+            </div>
+            <div class="form-control">
+                <label for="address">Address</label>
+                <textarea name="address" id="address" placeholder="Enter address" required></textarea>
+            </div>
+
+            <div class="form-control">
+                <label for="age" id="label-age">Age</label>
+                <input type="text" id="age" placeholder="Enter your age" required />
+            </div>
+            <div class="radio">
+                <label for="gender">Gender</label><br /><br />
+                <input type="radio" name="gender" id="male" value="Male" required />
+                <label for="male">Male</label><br />
+                <input type="radio" name="gender" id="female" value="Female" required />
+                <label for="female">Female</label><br />
+                <input type="radio" name="gender" id="other" value="Other" required />
+                <label for="other">Other</label>
+            </div>
+
+            <div class="form-control">
+                <label for="role" id="label-role">Which option best describes you?</label>
+                <select name="role" id="role" required>
+                    <option value="">Select</option>
+                    <option value="student">Student</option>
+                    <option value="intern">Intern</option>
+                    <option value="professional">Professional</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="button">
+                <a href="1.html"><input type="button" value="Back" class="next"></a>
+                <a href="7exitpoll.html">
+                    <input type="button" value="Next" class="back" onclick="saveData()" />
+                </a>
+            </div>
+        </form>
+
+        <script>
+            // Function to save form data
+            function saveData() {
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const address = document.getElementById("address").value;
+                const age = document.getElementById("age").value;
+                const gender = document.querySelector('input[name="gender"]:checked')?.value;
+                const role = document.getElementById("role").value;
+
+                // Save data in localStorage
+                localStorage.setItem("name", name);
+                localStorage.setItem("email", email);
+                localStorage.setItem("address", address);
+                localStorage.setItem("age", age);
+                localStorage.setItem("gender", gender);
+                localStorage.setItem("role", role);
+
+               
+            }
+        </script>
+    </body>
+</html>

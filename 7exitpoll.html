@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Election Pie Chart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      
+      margin: 0;
+      background-color: rgb(60, 60, 255);  /* Background gradient */
+      color: white;
+    }
+
+    h1 {
+      margin-top: 25px;
+      padding-left: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .chart-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin-top: 50px;
+      margin-left: 70px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+    }
+
+    .pie-chart {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      
+      background: conic-gradient(
+        
+        #ff693b 0% 36%,   
+        #3F51B5 36% 57%,   
+        #ff1e2a 57% 61.5% ,  /*aitc*/
+        #718fa8 61.5% 65.87%, /* dmk*/
+        #36ee2f  65.87% 67.80%, /* tdp*/
+        #0d490b  67% 68.25%, /* jdu*/
+        #1aa1a5  68.25% 69.75%, /* shsubt*/
+        #105456  69.75% 71%, /* aap*/
+        #626464  71% 100% /* others*/
+        
+      );
+    }
+
+    .chart-labels {
+      margin-top: 20px;
+      display: block;
+      flex-direction: column;
+      gap: 10px;
+      margin-left: 80px;
+      padding: 10px 40px;
+      width:220px;
+      background: rgba(255, 255, 255, 0.1); /* Semi-transparent background for labels */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .label {
+      display: flex;
+  
+      align-items: center;
+    }
+
+    .label-box {
+      width: 15px;
+      height: 15px;
+      margin-right: 10px;
+      border-radius: 3px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+                                                             
+    .label-party-a { background-color: #ff693b; }
+    .label-party-b { background-color: #3F51B5; }
+    .label-party-c { background-color: #ff1e2a; }
+    .label-party-d { background-color: #718fa8; }
+    .label-party-e { background-color: #36ee2f ; }
+    .label-party-f { background-color: #0d490b; }
+    .label-party-g { background-color: #1aa1a5; }
+    .label-party-h { background-color: #FFC107; }
+    .label-party-i { background-color:  #626464 ; }
+
+    .label-info{
+      display: block;
+      position: fixed;
+      height: 300px;
+      width: 600px;
+      top: 200px;
+      left: 600px;
+      padding-top: 10px;
+      padding-left: 10px;
+      border-radius: 15px;
+      background-color: rgb(68, 68, 67);
+    }
+    .button{
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .Start{
+      padding:15px ;
+      margin-left: 10px;
+      background-color: #1aa1a5;
+      font-size: large;
+      border-radius: 10px;
+        
+        }  
+      .back{
+        padding:15px ;
+      background-color: #ef0404;
+      font-size: large;
+      border-radius: 10px;
+      }
+    </style>
+</head>
+<body>
+  <h1>Lok Sabha Election 2024 Results</h1>
+  <div class="chart-container">
+    <div class="pie-chart"></div>
+  </div>
+  <div class="chart-labels">
+    <div class="label"><div class="label-box label-party-a"></div>BJP (36%)</div>
+    <div class="label"><div class="label-box label-party-b"></div>AIC (21%)</div>
+    <div class="label"><div class="label-box label-party-c"></div>AITC (4.5%)</div>
+    <div class="label"><div class="label-box label-party-d"></div>DMK (4.37%)</div>
+    <div class="label"><div class="label-box label-party-e"></div>TDP(1.46%)</div>
+    <div class="label"><div class="label-box label-party-f"></div>JD(U) (1.25%)</div>
+    <div class="label"><div class="label-box label-party-g"></div>SHSUBT (1.48%)</div>
+    <div class="label"><div class="label-box label-party-h"></div>AAP (1.15%)</div>
+    <div class="label"><div class="label-box label-party-i"></div>others (29%)</div>
+   
+  </div>
+   <div class="label-info">
+       <p class="para">
+        The Bharatiya Janata Party (BJP)-led National Democratic Alliance (NDA) won 292 seats, falling short of the 272-seat majority mark on its own but forming a government with coalition partners. This marked Prime Minister Narendra Modi's third consecutive term, though the BJP itself secured only 240 seats, a decline from its 303 seats in 2019.
+
+        The opposition alliance, Indian National Developmental Inclusive Alliance (INDIA), led by the Congress Party, made significant gains, winning 234 seats. Congress itself claimed 99 seats, achieving official opposition status for the first time in a decade.
+        In this survey we would ask some questions regarding the policies of the new government. </p>
+       <div class="button"><a href="1page.html"> <input type="button" value="Back" class="back"></a>
+         <a href="2page.html"><input type="button" value="Start Survey" class="Start"></a></div> 
+   </div>
+
+</body>
+</html>
